@@ -941,7 +941,7 @@ let activeSongId=null;
 const likedSet=new Set();
 
 async function loadSongs(){
-    try{const r=await fetch('/api/songs',{signal:AbortSignal.timeout(2000)});if(!r.ok)throw 0;const d=await r.json();if(d.success&&d.data.length)return d.data.map(s=>({...s,id:s._id||s.id}));}catch(e){}
+    try{const r=await fetch('https://rythmhub-backend.onrender.com/api/songs',{signal:AbortSignal.timeout(2000)});if(!r.ok)throw 0;const d=await r.json();if(d.success&&d.data.length)return d.data.map(s=>({...s,id:s._id||s.id}));}catch(e){}
     return SONGS;
 }
 
